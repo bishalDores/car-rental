@@ -7,18 +7,9 @@ export const cars = [
     rentPerDay: 120,
     address: "New York City, NY",
     images: [
-      {
-        url: "https://res.cloudinary.com/shopitnow-udemy/image/upload/v1723402978/gorental/demo/cars/biq5bagxwty4evbdsiac.jpg",
-        public_id: "gorental/demo/cars/biq5bagxwty4evbdsiac",
-      },
-      {
-        url: "https://res.cloudinary.com/shopitnow-udemy/image/upload/v1723402978/gorental/demo/cars/imkqapuaa3mutfpgudsr.webp",
-        public_id: "gorental/demo/cars/imkqapuaa3mutfpgudsr",
-      },
-      {
-        url: "https://res.cloudinary.com/shopitnow-udemy/image/upload/v1723402982/gorental/demo/cars/fi9jfdbyxnwrkxqsa5le.jpg",
-        public_id: "gorental/demo/cars/fi9jfdbyxnwrkxqsa5le",
-      },
+      { url: "https://images.unsplash.com/photo-1503376780353-7e6692767b70" },
+      { url: "https://images.unsplash.com/photo-1610465299994-5f6a8909186b" },
+      { url: "https://images.unsplash.com/photo-1502877338535-766e1452684a" },
     ],
     year: 2012,
     price: null,
@@ -40,12 +31,10 @@ export const cars = [
     address: "128-94 Sussex St, Buffalo, NY 14215, USA",
     images: [
       {
-        url: "https://res.cloudinary.com/shopitnow-udemy/image/upload/v1723403174/gorental/demo/cars/ndqlknmzi0adx2h6kgz1.jpg",
-        public_id: "gorental/demo/cars/ndqlknmzi0adx2h6kgz1",
+        url: "https://images.unsplash.com/photo-1658936958763-3b93f18951a9?q=80&w=1142&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       },
       {
-        url: "https://res.cloudinary.com/shopitnow-udemy/image/upload/v1723403179/gorental/demo/cars/g97qvzpc7gquivemuisd.jpg",
-        public_id: "gorental/demo/cars/g97qvzpc7gquivemuisd",
+        url: "https://images.unsplash.com/photo-1665052725066-c450a2ee9f3e?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       },
     ],
     year: 2015,
@@ -67,18 +56,9 @@ export const cars = [
     rentPerDay: 65,
     address: "198-74 Andover Ave, Buffalo, NY 14215, USA",
     images: [
-      {
-        url: "https://res.cloudinary.com/shopitnow-udemy/image/upload/v1723403378/gorental/demo/cars/oycmlqwxmknul6ffxbuj.jpg",
-        public_id: "gorental/demo/cars/oycmlqwxmknul6ffxbuj",
-      },
-      {
-        url: "https://res.cloudinary.com/shopitnow-udemy/image/upload/v1723403375/gorental/demo/cars/uatc1wqn9s7vefzy0eb7.jpg",
-        public_id: "gorental/demo/cars/uatc1wqn9s7vefzy0eb7",
-      },
-      {
-        url: "https://res.cloudinary.com/shopitnow-udemy/image/upload/v1723403384/gorental/demo/cars/rfm0dmuscisihcs8fwxd.jpg",
-        public_id: "gorental/demo/cars/rfm0dmuscisihcs8fwxd",
-      },
+      { url: "https://images.unsplash.com/photo-1503736334956-4c8f8e92946d" },
+      { url: "https://images.unsplash.com/photo-1504215680853-026ed2a45def" },
+      { url: "https://images.unsplash.com/photo-1485462537746-965f33f7f6f1" },
     ],
     year: 2009,
     price: null,
@@ -100,16 +80,13 @@ export const cars = [
     address: "1399 E Esther St, Orlando, FL 32806, USA",
     images: [
       {
-        url: "https://res.cloudinary.com/shopitnow-udemy/image/upload/v1723403586/gorental/demo/cars/qack07k62sapezixwl0t.jpg",
-        public_id: "gorental/demo/cars/qack07k62sapezixwl0t",
+        url: "https://images.unsplash.com/photo-1570303278489-041bd897a873?q=80&w=764&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       },
       {
-        url: "https://res.cloudinary.com/shopitnow-udemy/image/upload/v1723403587/gorental/demo/cars/tfntmebom3javn6h98qe.avif",
-        public_id: "gorental/demo/cars/tfntmebom3javn6h98qe",
+        url: "https://images.unsplash.com/photo-1605816988069-b11383b50717?q=80&w=1488&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       },
       {
-        url: "https://res.cloudinary.com/shopitnow-udemy/image/upload/v1723403608/gorental/demo/cars/w2lsdwqo3zhzmhe7moun.jpg",
-        public_id: "gorental/demo/cars/w2lsdwqo3zhzmhe7moun",
+        url: "https://images.unsplash.com/photo-1610768207795-72169abdf0d4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       },
     ],
     year: 2011,
@@ -132,12 +109,10 @@ export const cars = [
     address: "3501 Shamrock Ct, Orlando, FL 32806, USA",
     images: [
       {
-        url: "https://res.cloudinary.com/shopitnow-udemy/image/upload/v1723403794/gorental/demo/cars/htfvzg0oyda2vtdor4gg.webp",
-        public_id: "gorental/demo/cars/htfvzg0oyda2vtdor4gg",
+        url: "https://images.unsplash.com/photo-1689221590315-514bb87b16e8?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       },
       {
-        url: "https://res.cloudinary.com/shopitnow-udemy/image/upload/v1723403794/gorental/demo/cars/ibrizzgguyjqhtcnyqfu.jpg",
-        public_id: "gorental/demo/cars/ibrizzgguyjqhtcnyqfu",
+        url: "https://images.unsplash.com/photo-1681276159290-29989388a728?q=80&w=1631&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       },
     ],
     year: 2017,
@@ -160,12 +135,10 @@ export const cars = [
     address: "5910 Boca Raton Dr, Dallas, TX 75230, USA",
     images: [
       {
-        url: "https://res.cloudinary.com/shopitnow-udemy/image/upload/v1723404025/gorental/demo/cars/djge3pem8mqt6g88yfxf.jpg",
-        public_id: "gorental/demo/cars/djge3pem8mqt6g88yfxf",
+        url: "https://images.unsplash.com/photo-1581540222194-0def2dda95b8?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       },
       {
-        url: "https://res.cloudinary.com/shopitnow-udemy/image/upload/v1723404025/gorental/demo/cars/u6zferximo1gi5enck1j.jpg",
-        public_id: "gorental/demo/cars/u6zferximo1gi5enck1j",
+        url: "https://images.unsplash.com/photo-1731575382862-37afa5c5693d?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       },
     ],
     year: 2015,
@@ -187,14 +160,8 @@ export const cars = [
     rentPerDay: 29,
     address: "6992 Lavendale Ave, Dallas, TX 75230, USA",
     images: [
-      {
-        url: "https://res.cloudinary.com/shopitnow-udemy/image/upload/v1723404184/gorental/demo/cars/sn8cxt0cnuadncitb8yx.jpg",
-        public_id: "gorental/demo/cars/sn8cxt0cnuadncitb8yx",
-      },
-      {
-        url: "https://res.cloudinary.com/shopitnow-udemy/image/upload/v1723404185/gorental/demo/cars/pw5jinhnj6ljhpuwejsn.jpg",
-        public_id: "gorental/demo/cars/pw5jinhnj6ljhpuwejsn",
-      },
+      { url: "https://images.unsplash.com/photo-1542362567-b07e54358753" },
+      { url: "https://images.unsplash.com/photo-1549921296-3fe7a6d28089" },
     ],
     year: 2010,
     price: null,
@@ -216,12 +183,10 @@ export const cars = [
     address: "5667 Boaz St, Dallas, TX 75209, USA",
     images: [
       {
-        url: "https://res.cloudinary.com/shopitnow-udemy/image/upload/v1723404320/gorental/demo/cars/batozhqurlnho0c9ptox.jpg",
-        public_id: "gorental/demo/cars/batozhqurlnho0c9ptox",
+        url: "https://images.unsplash.com/photo-1613431909141-5927c9250948?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       },
       {
-        url: "https://res.cloudinary.com/shopitnow-udemy/image/upload/v1723404321/gorental/demo/cars/y1wcdb9zar49ywksyoom.jpg",
-        public_id: "gorental/demo/cars/y1wcdb9zar49ywksyoom",
+        url: "https://images.unsplash.com/photo-1621349337628-d4f1c1a24114?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       },
     ],
     year: 2017,

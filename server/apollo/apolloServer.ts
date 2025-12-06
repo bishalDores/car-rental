@@ -4,6 +4,7 @@ import { makeExecutableSchema } from "@graphql-tools/schema";
 import { Application, json } from "express";
 import { carTypeDefs } from "../graphql/typeDefs/car.typeDefs";
 import { carResolvers } from "../graphql/resolvers/car.resolvers";
+import cors from "cors";
 
 export async function startApolloServer(app: Application) {
   const typeDefs = [carTypeDefs];
@@ -20,5 +21,13 @@ export async function startApolloServer(app: Application) {
 
   await apolloServer.start();
 
-  app.use("/graphql", json(), expressMiddleware(apolloServer));
+  app.use(
+    "/graphql",
+    cors({
+      credentials: true,
+      origin: ["http://localhost:5173"],
+    }),
+    json(),
+    expressMiddleware(apolloServer)
+  );
 }
