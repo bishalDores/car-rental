@@ -12,6 +12,8 @@ import { useParams } from "react-router-dom";
 // import { BookingForm } from "../booking/BookingForm";
 // import CarReviews from "../review/CarReviews";
 import CarFeatures from "./CarFeatures";
+import { Rating } from "../ui/rating";
+import { LoadingSpinner } from "../layout/LoadingSpinner";
 
 const CarDetails = () => {
   const params = useParams();
@@ -24,7 +26,7 @@ const CarDetails = () => {
   const car = data?.getCarById;
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <LoadingSpinner fullscreen={true} />;
   }
   return (
     <div className="container">
@@ -49,7 +51,7 @@ const CarDetails = () => {
                     </p>
 
                     <div className="flex items-center my-5">
-                      {/* Star Rating Component */}
+                      <Rating value={car?.ratings?.value} size={15} />
                       <p className="ms-2 text-sm font-bold text-gray-900 dark:text-white">{car?.ratings?.value}</p>
                       <span className="w-1 h-1 mx-1.5 bg-gray-500 rounded-full dark:bg-gray-400"></span>
                       <p className="text-sm font-medium text-gray-900 underline hover:no-underline dark:text-white">{car?.ratings?.count} reviews</p>

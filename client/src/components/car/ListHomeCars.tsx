@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { ArrowLeftRight } from "lucide-react";
 import { Button } from "../ui/button";
 import type { ICar } from "@go-rental/shared";
+import { LoadingSpinner } from "../layout/LoadingSpinner";
 
 type Props = {
   cars: ICar[];
@@ -11,7 +12,7 @@ type Props = {
 };
 const ListHomeCars = ({ cars, loading }: Props) => {
   if (loading) {
-    return <div>Loading...</div>;
+    return <LoadingSpinner fullscreen={true} />;
   }
   return (
     <>
@@ -29,7 +30,7 @@ const ListHomeCars = ({ cars, loading }: Props) => {
       <div className="text-sm text-muted-foreground">
         {cars &&
           cars.length > 0 &&
-          cars.map((car: any) => {
+          cars.map((car: ICar) => {
             return <CarItem car={car} />;
           })}
       </div>
