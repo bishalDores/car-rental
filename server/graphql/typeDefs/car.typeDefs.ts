@@ -51,8 +51,21 @@ export const carTypeDefs = gql`
     category: String!
   }
 
+  input RentFilter {
+    gt: Int
+    gte: Int
+    lt: Int
+    lte: Int
+  }
+  input CarFilters {
+    category: String
+    brand: String
+    transmission: String
+    status: String
+    rentPerDay: RentFilter
+  }
   type Query {
-    getAllCars: [Car]
+    getAllCars(filters: CarFilters, query: String): [Car]
     getCarById(id: ID!): Car
   }
   type Mutation {
