@@ -3,7 +3,8 @@ import { CarFilters, CarInput } from "../../types/car.types";
 
 export const carResolvers = {
   Query: {
-    getAllCars: async (_: any, { filters, query }: { filters: CarFilters; query: string }) => await getAllCars(filters, query),
+    getAllCars: async (_: any, { page = 1, filters, query }: { page: number; filters: CarFilters; query: string }) =>
+      await getAllCars(page, filters, query),
     getCarById: async (_: any, { id }: { id: string }) => {
       return await getCarById(id);
     },

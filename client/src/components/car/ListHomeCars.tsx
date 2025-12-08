@@ -5,12 +5,17 @@ import { ArrowLeftRight } from "lucide-react";
 import { Button } from "../ui/button";
 import type { ICar } from "@go-rental/shared";
 import { LoadingSpinner } from "../layout/LoadingSpinner";
+import CustomPagination from "../layout/CustomPagination";
 
 type Props = {
   cars: ICar[];
   loading: boolean;
+  pagination: {
+    totalCount: number;
+    resPerPage: number;
+  };
 };
-const ListHomeCars = ({ cars, loading }: Props) => {
+const ListHomeCars = ({ cars, loading, pagination }: Props) => {
   if (loading) {
     return <LoadingSpinner fullscreen={true} />;
   }
@@ -31,9 +36,10 @@ const ListHomeCars = ({ cars, loading }: Props) => {
         {cars &&
           cars.length > 0 &&
           cars.map((car: ICar) => {
-            return <CarItem car={car} />;
+            return <CarItem car={car} key={car.id} />;
           })}
       </div>
+      {pagination?.totalCount > pagination?.resPerPage && <CustomPagination totalCount={pagination.totalCount} resPerPage={pagination.resPerPage} />}
     </>
   );
 };

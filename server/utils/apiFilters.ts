@@ -20,9 +20,16 @@ class APIFilters {
     return this;
   }
   filters(filters: any) {
-    let filterStr = JSON.stringify(filters);
+    const filtersCopy = { ...filters };
+    let filterStr = JSON.stringify(filtersCopy);
     filterStr = filterStr.replace(/\b(gt|gte|lt|lte)\b/g, (match) => `$${match}`);
     this.model = this.model.find(JSON.parse(filterStr));
+    return this;
+  }
+  pagination(page: string | number, resPerPage: number) {
+    const currentPage = Number(page) || 1;
+    const skip = resPerPage * (currentPage - 1);
+    this.model = this.model.limit(resPerPage).skip(skip);
     return this;
   }
 }
