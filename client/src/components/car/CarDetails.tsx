@@ -14,6 +14,7 @@ import { useParams } from "react-router-dom";
 import CarFeatures from "./CarFeatures";
 import { Rating } from "../ui/rating";
 import { LoadingSpinner } from "../layout/LoadingSpinner";
+import NotFound from "../layout/NotFound";
 
 const CarDetails = () => {
   const params = useParams();
@@ -27,6 +28,9 @@ const CarDetails = () => {
 
   if (loading) {
     return <LoadingSpinner fullscreen={true} />;
+  }
+  if (error?.errors[0]?.extensions.code === "BAD_USER_INPUT") {
+    return <NotFound />;
   }
   return (
     <div className="container">
