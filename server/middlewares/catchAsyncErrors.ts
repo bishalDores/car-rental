@@ -1,36 +1,31 @@
-// export default (controllerFunction: Function) =>
-//   (...args: any[]) =>
-//     Promise.resolve(controllerFunction(...args)).catch((error) => {
-//       if (error.name === "CastError") {
-//         const message = `Resource not found. Invalid: ${error.path}`;
-//         throw new Error(message);
-//       }
-//       if (error.name === "ValidationError") {
-//         const message = Object.values(error.errors).map((value: any) => value.message);
-//         const combinedErrorMessage = message.join(", ");
-//         throw new Error(combinedErrorMessage);
-//       }
-//       throw error;
-//     });
-
 import { GraphQLError } from "graphql";
+import { NotFoundError } from "../utils/errorHandler";
 
 export default (controllerFunction: Function) =>
   async (...args: any[]) => {
     try {
       return await controllerFunction(...args);
     } catch (error: any) {
-      // If it's already a GraphQL error, DO NOT TOUCH IT
+      // 1️⃣ Preserve existing GraphQL errors
       if (error instanceof GraphQLError) {
         throw error;
       }
 
-      if (error.name === "CastError") {
-        throw new GraphQLError(`Resource not found. Invalid: ${error.path}`, {
+      // 2️⃣ Duplicate key error (email already exists)
+      if (error?.code === 11000) {
+        const field = Object.keys(error.keyValue)[0];
+
+        throw new GraphQLError(`${field} already exists`, {
           extensions: { code: "BAD_USER_INPUT" },
         });
       }
 
+      // 3️⃣ Invalid Mongo ID
+      if (error.name === "CastError") {
+        throw new NotFoundError(`Resource not found. Invalid: ${error.path}`);
+      }
+
+      // 4️⃣ Mongoose validation errors (password, required, enum, etc.)
       if (error.name === "ValidationError") {
         const messages = Object.values(error.errors).map((value: any) => value.message);
 
@@ -39,7 +34,7 @@ export default (controllerFunction: Function) =>
         });
       }
 
-      // fallback
+      // 5️⃣ Fallback
       throw new GraphQLError(error.message || "Internal server error", {
         extensions: { code: "INTERNAL_SERVER_ERROR" },
       });
