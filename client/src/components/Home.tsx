@@ -44,9 +44,7 @@ const Home = () => {
         <ListHomeCars cars={data?.getAllCars?.cars} loading={loading} pagination={data?.getAllCars.pagination} />
       </div>
       <div className="md:col-span-6 lg:col-span-4 flex flex-col">
-        <div className="flex items-center justify-center h-screen">
-          <AlertCard title="Error" description="Error Messages" />
-        </div>
+        <div className="flex items-center justify-center h-screen">{/* <AlertCard title="Error" description="Error Messages" /> */}</div>
         {/* Google Map Component */}
       </div>
     </main>
