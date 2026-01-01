@@ -5,6 +5,11 @@ import Home from "./components/Home";
 import CarDetails from "./components/car/CarDetails";
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
+import Profile from "./components/user/Profile";
+import Dashboard from "./components/admin/Dashboard";
+import ProtectedRoutes from "./components/auth/ProtectedRoutes";
+import ForgotPassword from "./components/auth/ForgotPassword";
+import ResetPassword from "./components/auth/ResetPassword";
 
 function App() {
   return (
@@ -16,6 +21,24 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path="/car/:id" element={<CarDetails />} />
+          <Route path="/password/forgot" element={<ForgotPassword />} />
+          <Route path="/password/reset/:token" element={<ResetPassword />} />
+          <Route
+            path="/me/profile"
+            element={
+              <ProtectedRoutes requiredRoles={["user"]}>
+                <Profile />
+              </ProtectedRoutes>
+            }
+          />
+          <Route
+            path="/admin/dashboard"
+            element={
+              <ProtectedRoutes requiredRoles={["admin"]}>
+                <Dashboard />
+              </ProtectedRoutes>
+            }
+          />
         </Routes>
         <Footer />
       </BrowserRouter>

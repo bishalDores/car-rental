@@ -1,25 +1,39 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "../ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../ui/card";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "../ui/form";
 import { Input } from "../ui/input";
 import { LogIn } from "lucide-react";
 import { useForm } from "react-hook-form";
-import { useMutation } from "@apollo/client/react";
+import { useMutation, useReactiveVar } from "@apollo/client/react";
 import { LOGIN_MUTATION } from "@/graphql/mutations/user.mutation";
 import { toast } from "sonner";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { LoginSchema } from "@/zod-schemas/user.schemas";
 import { z } from "zod";
+import { isAuthenticatedVar } from "@/apollo/apollo-vars";
+import { useEffect } from "react";
+import { CURRENT_USER } from "@/graphql/queries/user.queries";
 
 const Login = () => {
+  const isAuthenticated = useReactiveVar(isAuthenticatedVar);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate("/");
+    }
+  }, [isAuthenticated, navigate]);
+
   const [login, { loading }] = useMutation(LOGIN_MUTATION, {
-    onCompleted: () => {
-      toast.success("Successfully Registered");
-    },
+    refetchQueries: [{ query: CURRENT_USER }],
   });
   const form = useForm<z.infer<typeof LoginSchema>>({
     resolver: zodResolver(LoginSchema),
+    defaultValues: {
+      email: "",
+      password: "",
+    },
   });
 
   const onSubmitHandler = async (data: z.infer<typeof LoginSchema>) => {

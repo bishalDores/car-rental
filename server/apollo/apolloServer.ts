@@ -9,10 +9,17 @@ import { userTypeDefs } from "../graphql/typeDefs/user.typeDefs";
 import { userResolvers } from "../graphql/resolvers/user.resolvers";
 import { applyMiddleware } from "graphql-middleware";
 import { permissions } from "../middlewares/permission";
+import jwt from "jsonwebtoken";
+import User from "../models/user.model";
+import { bookingTypeDefs } from "../graphql/typeDefs/booking.typeDefs";
+import { bookingReolvers } from "../graphql/resolvers/booking.resolvers";
 
+interface CustomJwtPayload {
+  _id: string;
+}
 export async function startApolloServer(app: Application) {
-  const typeDefs = [carTypeDefs, userTypeDefs];
-  const resolvers = [carResolvers, userResolvers];
+  const typeDefs = [carTypeDefs, userTypeDefs, bookingTypeDefs];
+  const resolvers = [carResolvers, userResolvers, bookingReolvers];
 
   const schema = makeExecutableSchema({
     typeDefs,
@@ -35,7 +42,19 @@ export async function startApolloServer(app: Application) {
     json(),
     expressMiddleware(apolloServer, {
       context: async ({ req, res }: { req: Request; res: Response }) => {
-        return { req, res };
+        const token = req.cookies?.token;
+        let user = null;
+        if (token) {
+          try {
+            const decodedToken = jwt.verify(token, process.env.JWT_SECRET!) as CustomJwtPayload;
+            user = await User.findById(decodedToken._id);
+            if (!user) throw new Error("User not found");
+          } catch (err) {
+            throw new Error("Invalid token");
+          }
+        }
+
+        return { req, res, user };
       },
     })
   );

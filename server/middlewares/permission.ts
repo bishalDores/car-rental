@@ -1,3 +1,25 @@
-import { shield } from "graphql-shield";
+import { and, rule, shield } from "graphql-shield";
 
-export const permissions = shield({});
+const isAuthenticated = rule({ cache: "contextual" })(async (parent, args, context) => {
+  return context?.user !== null;
+});
+
+const isAdmin = rule({ cache: "contextual" })(async (parent, args, context) => {
+  return context?.user?.role?.includes("admin");
+});
+
+export const permissions = shield(
+  {
+    Query: {
+      me: isAuthenticated,
+      logout: isAuthenticated,
+    },
+    Mutation: {
+      updateUserProfile: isAuthenticated,
+      updatePassword: isAuthenticated,
+    },
+  },
+  {
+    debug: true,
+  }
+);
